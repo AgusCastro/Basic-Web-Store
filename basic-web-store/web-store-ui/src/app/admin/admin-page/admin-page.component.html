@@ -1,0 +1,46 @@
+<div #boundary style="height:6%;">
+  <div #spacer></div>
+  <div stickyThing [spacer]="spacer" [boundary]="boundary">
+    <mat-toolbar>
+      <a [routerLink]="['/']">
+        <h1>Scyula's Store</h1>
+      </a>
+      <span class="spacer"></span>
+    </mat-toolbar>
+  </div>
+</div>
+<mat-sidenav-container class="fondo-leftSide">
+  <mat-sidenav mode="side" opened>
+    <mat-list>
+      <mat-list-item>
+        <button mat-button (click)="verUsuarios()">Usuarios</button>
+      </mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item>
+        <button mat-button (click)="verProductos()">Productos</button>
+      </mat-list-item>
+    </mat-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div class="fondo-rigthSide">
+      <div class="mt-2"></div>
+      <div>
+        <ng-container *ngIf="seleccion === 'usuarios'">
+          <div class="container">
+            <app-list-user></app-list-user>
+          </div>
+        </ng-container>
+        <ng-container *ngIf="seleccion === 'productos'">
+          <div class="container">
+            <app-list-products-admin></app-list-products-admin>
+          </div>
+        </ng-container>
+        <ng-container *ngIf="seleccion === ''">
+          <div class="container">
+            <h1>Bienvenido!</h1>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

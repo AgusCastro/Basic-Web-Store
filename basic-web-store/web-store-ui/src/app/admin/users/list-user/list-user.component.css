@@ -1,0 +1,18 @@
+.user-container {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+}
+table {
+  width: 90%;
+  alignment: center;
+  margin: auto;
+}
+.mat-toolbar {
+  top: 0;
+  position: fixed;
+  height: 80px;
+}
+.spacer {
+  flex: 1 1 auto;
+}

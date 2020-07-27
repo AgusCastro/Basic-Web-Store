@@ -1,0 +1,45 @@
+.user-container {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+}
+table {
+  width: 90%;
+  alignment: center;
+  margin: auto;
+}
+.mat-toolbar {
+  top: 0;
+  position: fixed;
+  height: 80px;
+}
+.spacer {
+  flex: 1 1 auto;
+}
+
+.mat-form-field {
+  width: 90%;
+  alignment: center;
+  margin: auto;
+}
+.buscador{
+  margin: 0 auto;
+  width: 95%;
+  alignment: center;
+  background: white;
+  color: #1b1e21;
+}
+.titulo{
+  text-align: center;
+  line-height: 150%;
+  color: #007afe;
+  font-family: 'Arial', sans-serif;
+  font-size: 45px;
+  font-weight: normal;
+  alignment: center;
+  align-content: center;
+}
+
+.centrado {
+  align-items: center; justify-content: center; text-align: center;
+}

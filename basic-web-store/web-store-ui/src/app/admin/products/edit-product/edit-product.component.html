@@ -1,0 +1,36 @@
+<div class="col-md-6 user-container">
+  <h2 class="text-center">Editar producto</h2>
+  <form [formGroup]="addForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="id">ID:</label>
+      <input type="text" disabled="true" formControlName="id" placeholder="Nro. identificador" name="id" class="form-control" id="id">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Nombre del producto:</label>
+      <input type="text" formControlName="name" placeholder="Nombre del producto" name="name" class="form-control" id="name">
+    </div>
+
+    <div class="form-group">
+      <label for="category">Categoria:</label>
+      <input formControlName="category" placeholder="Categoria" name="category" class="form-control" id="category">
+    </div>
+
+    <div class="form-group">
+      <label for="price">Precio:</label>
+      <input type="number" formControlName="price" placeholder="Precio" name="price" class="form-control" id="price">
+    </div>
+
+    <div class="form-group">
+      <label for="stock">Stock:</label>
+      <input type="number" formControlName="stock" placeholder="stock" name="Stock" class="form-control" id="stock">
+    </div>
+
+    <div class="form-group">
+      <label for="description">Descripcion:</label>
+      <input type="text" formControlName="description" placeholder="Description" name="description" class="form-control" id="description">
+    </div>
+
+    <button class="btn btn-success">Editar</button>
+  </form>
+</div>

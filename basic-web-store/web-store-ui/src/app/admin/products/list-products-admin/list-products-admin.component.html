@@ -1,0 +1,57 @@
+<div class="col-md-6 user-container">
+  <h2 style="margin: auto">Listado de productos</h2>
+  <button class="btn btn-danger" (click)="addProduct()"> Nuevo Producto</button>
+</div>
+<div class="centrado">
+  <mat-form-field style="font-size: 30px; background: white">
+    <form [formGroup]="searchForm" (ngSubmit)="buscar()">
+      <div class="form-group">
+        <input matInput placeholder="Buscar por categoria" formControlName="busqueda"><button class="waves-effect btn-primary btn" (click)="buscar()">Buscar</button>
+      </div>
+    </form>
+  </mat-form-field>
+</div>
+
+<table mat-table [dataSource]="datasource" class="mat-elevation-z8" style="overflow-x: scroll;">
+
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef> Id </th>
+    <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="nombre">
+    <th mat-header-cell *matHeaderCellDef> Nombre </th>
+    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="description">
+    <th mat-header-cell *matHeaderCellDef> Descripcion </th>
+    <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="categoria">
+    <th mat-header-cell *matHeaderCellDef> Categoria </th>
+    <td mat-cell *matCellDef="let element"> {{element.category}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="precio">
+    <th mat-header-cell *matHeaderCellDef> Precio </th>
+    <td mat-cell *matCellDef="let element"> $ {{element.price}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="stock">
+    <th mat-header-cell *matHeaderCellDef> Stock </th>
+    <td mat-cell *matCellDef="let element"> {{element.stock}} </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+
+  <ng-container matColumnDef="boton">
+    <th mat-header-cell *matHeaderCellDef></th>
+    <td mat-cell *matCellDef="let element">
+      <button class="waves-effect btn-primary btn" (click)="modificarProducto(element)">Modificar</button>
+    </td>
+  </ng-container>
+</table>

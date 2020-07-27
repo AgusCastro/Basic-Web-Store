@@ -1,0 +1,63 @@
+<div class="titulo">Carrito</div>
+<div *ngIf="carrito.length != 0">
+  <table *ngIf="dataSource" mat-table [dataSource]="dataSource" class="mat-elevation-z12">
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    <tr mat-footer-row *matFooterRowDef="displayedColumns"></tr>
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="nombre">
+      <th mat-header-cell *matHeaderCellDef> Nombre </th>
+      <td mat-cell *matCellDef="let element"> {{element.producto.name}} </td>
+      <td mat-footer-cell *matFooterCellDef> Total </td>
+    </ng-container>
+    <ng-container matColumnDef="unitario">
+      <th mat-header-cell *matHeaderCellDef> Valor Unitario </th>
+      <td mat-cell *matCellDef="let element"> {{element.producto.price| currency}} </td>
+      <td mat-footer-cell *matFooterCellDef></td>
+    </ng-container>
+
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="cantidad">
+      <th mat-header-cell *matHeaderCellDef> Cantidad </th>
+      <td mat-cell *matCellDef="let element"> {{element.cantidad}} </td>
+      <td mat-footer-cell *matFooterCellDef></td>
+    </ng-container>
+
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="subtotal">
+      <th mat-header-cell *matHeaderCellDef> Subtotal </th>
+      <td mat-cell *matCellDef="let element">{{element.montoTotal| currency}} </td>
+      <td mat-footer-cell *matFooterCellDef> {{getCostoTotal() | currency}} </td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="boton">
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td mat-cell *matCellDef="let element">
+
+        <button class="waves-effect btn-primary btn" (click)="eliminar(element)">Eliminar</button>
+
+      </td>
+      <td mat-footer-cell *matFooterCellDef></td>
+    </ng-container>
+
+  </table>
+</div>
+<div *ngIf="carrito.length == 0">
+  <div class="Carro vacio">Vacio, seleccione productos</div>
+</div>
+<div mat-dialog-actions>
+  <section>
+    <div class="button-row">
+      <button mat-raised-button color="accent" [mat-dialog-close]="data"  (click)="cerrar()">Volver</button>
+    </div>
+  </section>
+  <button *ngIf="carrito.length != 0" mat-raised-button color="warn" [mat-dialog-close]="data"  (click)="finalizaCompra()">Comprar</button>
+</div>
+

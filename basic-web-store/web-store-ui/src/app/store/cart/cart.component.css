@@ -1,0 +1,28 @@
+table {
+  width: 90%;
+  alignment: center;
+  margin: auto;
+}
+.spacer {
+  flex: 1 1 auto;
+}
+
+.titulo{
+  text-align: center;
+  line-height: 150%;
+  color: #007afe;
+  font-family: 'Arial', sans-serif;
+  font-size: 45px;
+  font-weight: normal;
+  alignment: center;
+  align-content: center;
+}
+
+.button-row {
+  display: table-cell;
+  width: 490px;
+}
+
+tr.mat-footer-row {
+  font-weight: bold;
+}
